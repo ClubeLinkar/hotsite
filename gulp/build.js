@@ -21,7 +21,7 @@ gulp.task('partials', function () {
       quotes: true
     }))
     .pipe($.angularTemplatecache('templateCacheHtml.js', {
-      module: 'linkar-landing-page'
+      module: 'linkar-hotsite'
     }))
     .pipe(gulp.dest(paths.tmp + '/partials/'));
 });
