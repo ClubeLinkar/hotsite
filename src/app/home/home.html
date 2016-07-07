@@ -16,28 +16,41 @@
 
     <div id="espContSobre">
 
-      <b>DOMINO'S | MESQUITA</b>
+      <b>{{vm.company.name}}</b>
 
       <p class="corVerde">
-        Domino's Pizza é uma empresa de alimentação baseada em pizzas. Atualmente, é a maior rede de entregas de pizzas do mundo, com 10.000 lojas em 70 países.
+        {{vm.company.desc}}
       </p>
 
       <p>
-        Rua Mercúrio, Nº 65, Centro | Mesquita - RJ  &nbsp;|&nbsp; 21 . 3765.8500 &nbsp;|&nbsp;
-        <a href="http://www.dominos.com.br">
-          www.dominos.com.br
+        {{vm.company.addr}}
+        <span ng-model="phone" ng-repeat="phone in vm.company.phones">
+          &nbsp;|&nbsp;
+          {{phone | brPhoneNumber}}
+        </span>
+
+        <a href="{{vm.company.site}}">
+          {{vm.company.site}}
         </a>
       </p>
 
-      <img src="assets/images/demo/logotipo-facebook.png" width="30" height="30" />&nbsp;&nbsp;
-      <img src="assets/images/demo/logotipo-instagram.png" width="30" height="30" />&nbsp;&nbsp;
-      <img src="assets/images/demo/logotipo-twitter.png" width="30" height="30" />&nbsp;&nbsp;
-      <img src="assets/images/demo/logotipo-youtube.png" width="30" height="30" />
+      <a href="{{vm.company.social.facebook}}" target="_blank" ng-if="vm.company.social.facebook">
+        <img src="assets/images/demo/logotipo-facebook.png" width="30" height="30" />&nbsp;&nbsp;
+      </a>
+      <a href="{{vm.company.social.instagram}}" target="_blank" ng-if="vm.company.social.instagram">
+        <img src="assets/images/demo/logotipo-instagram.png" width="30" height="30" />&nbsp;&nbsp;
+      </a>
+      <a href="{{vm.company.social.twitter}}" target="_blank" ng-if="vm.company.social.twitter">
+        <img src="assets/images/demo/logotipo-twitter.png" width="30" height="30" />&nbsp;&nbsp;
+      </a>
+      <a href="{{vm.company.social.youtube}}" target="_blank" ng-if="vm.company.social.youtube">
+        <img src="assets/images/demo/logotipo-youtube.png" width="30" height="30" />&nbsp;&nbsp;
+      </a>
 
     </div>
 
     <div id="espContTitulo2" class="corCoral">
-      Troque agora os seus pontos por algum produto que a Domino's disponibiliza no Clube de Vantagens do Conecta Baixada, aproveite!
+      Confira os produtos em destaque da {{vm.company.name}}:
     </div>
 
   </div>
@@ -46,33 +59,24 @@
 
     <div id="espProdEmpreInt">
 
-      <div class="espProdEmpreIntItem">
-        <img src="assets/images/products/Cafeteira-Expresso-Nespresso-19-BAR-Ruby-Red-Inissia.jpg" width="280" height="280" />
-        <h4 class="corVerde">Cafeteira Expresso Nespresso <br/>
-          <strong class="corCoral">4.000 LKR</strong>
-        </div>
+      <div id="espContTitulo2" class="corCoral" ng-if="vm.products.length === 0">
+        Não foram encontrados produtos em destaque para exibição.
+      </div>
 
-        <div class="espProdEmpreIntItem"><img src="assets/images/products/micro-ondas-30-litros-lg.jpg" width="280" height="280" />
-          <h4 class="corVerde">Micro Ondas 30 Litros LG<br/>
-            <strong class="corCoral">5.209 LKR</strong>
-          </div>
+      <div class="espProdEmpreIntItem" ng-repeat="product in vm.products">
+        <img src="http://placehold.it/280x280" width="280" height="280" />
+        <h4 class="corVerde">{{product.name}}</h4>
+        <strong class="corCoral">{{product.price}} LKR</strong>
+      </div>
 
-          <div class="espProdEmpreIntItem"><img src="assets/images/products/maleta-com-soquetes-e-acessorios-12-tramontina.jpg" width="280" height="280" />
-            <h4 class="corVerde">Maleta Com Soquetes e Acessórios<br/>
-              <strong class="corCoral">2.490 LKR</strong>
-            </div>
 
-            <div class="espProdEmpreIntItem"><img src="assets/images/products/Smartphone-Motorola-Moto-E-2-Geracao.jpg" width="280" height="280" />
-              <h4 class="corVerde">Smartphone Moto E 2ª Geração<br/>
-                <strong class="corCoral">5.999 LKR</strong>
-              </div>
 
-            </div>
+    </div>
 
-          </div>
+  </div>
 
-          <!-- Conteúdo -->
+  <!-- Conteúdo -->
 
-        </div>
+</div>
 
-        <div id="espcRdp"></div>
+<div id="espcRdp"></div>

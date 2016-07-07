@@ -7,6 +7,7 @@
     'ngSanitize',
     'ngResource',
     'ui.router',
-    'ngToast'
+    'ngToast',
+    'idf.br-filters'
   ]);
 })();
